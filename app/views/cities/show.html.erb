@@ -1,0 +1,10 @@
+<p>City <%= @city.id %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @city.name %>
+</p>
+
+<%= link_to "Edit", edit_city_path(@city.id) %> |
+<%= link_to "Delete", city_path(@city.id), data: {method: :delete, confirm: "Are you sure you want to delete?"} %> |
+<%= link_to "Back", cities_path %>

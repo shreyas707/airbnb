@@ -1,0 +1,15 @@
+<p>Amenity <%= @amenity.id %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @amenity.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @amenity.description %>
+</p>
+
+<%= link_to 'Edit', edit_amenity_path(@amenity.id) %> |
+<%= link_to "Delete", amenities_path(@amenity.id), data: {method: :delete, confirm: "Are you sure you want to delete?"} %> |
+<%= link_to 'Back', amenities_path %>

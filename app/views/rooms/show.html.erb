@@ -1,0 +1,43 @@
+<p>Room <%= @room.id %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @room.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @room.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @room.price %>
+</p>
+
+<p>
+  <strong>Rules:</strong>
+  <%= @room.rules %>
+</p>
+
+<p>
+  <strong>Amenities:</strong>
+  <% @room.amenities.each do |amenity| %><br/>
+	<%= amenity.name %>
+  <% end %>
+</p>
+
+
+<p>
+  <strong>City:</strong>
+  <%= @room.city.name %>
+</p>
+
+<p>
+  <strong>Room Type:</strong>
+  <%= @room.room_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_room_path(@room.id) %> |
+<%= link_to "Delete", room_path(@room.id), data: {method: :delete, confirm: "Are you sure you want to delete?"} %> |
+<%= link_to 'Back', rooms_path %>

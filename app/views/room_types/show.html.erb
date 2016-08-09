@@ -1,0 +1,10 @@
+<p>Room Type <%= @room_type.id %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @room_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_room_type_path(@room_type.id) %> |
+<%= link_to "Delete", room_types_path(@room_type.id), data: {method: :delete, confirm: "Are you sure you want to delete?"} %> |
+<%= link_to 'Back', room_types_path %>

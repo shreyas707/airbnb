@@ -1,0 +1,15 @@
+<h3>Add City</h3>
+
+<%= form_for @city do |f| %>
+<% if @city.errors.any? %>
+	<h4>These errors prohitibted the form from being saved: </h4>
+	<ul style = "color:red;">
+		<% @city.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+	<label>Name</label><br/>
+	<%= f.text_field :name %><br/>
+	<%= f.submit %>
+<% end %>

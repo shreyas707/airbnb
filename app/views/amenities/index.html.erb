@@ -1,0 +1,28 @@
+<h3>Listing Amenities</h3>
+
+<% if @amenities.empty? %>
+	<p>No amenity found.</p>
+<% else %>
+
+	<table border = "1">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Show</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @amenities.each_with_index do |amenity,index|%>
+			<tr>
+				<td> <%= index + 1 %></td>
+				<td> <%= amenity.name %></td>
+				<td> <%= amenity.description %> </td>
+				<td> <%= link_to "Show", amenity_path(amenity.id) %> </td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>
+<h2><%= link_to "Add amenity", new_amenity_path %></h2>

@@ -1,0 +1,18 @@
+<h3>Edit Amenity</h3>
+
+<%= form_for @amenity do |f| %>
+<% if @amenity.errors.any? %>
+	<h4>These errors prohitibted the form from being saved: </h4>
+	<ul style = "color:red;">
+		<% @amenity.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+	<label>Name</label><br/>
+	<%= f.text_field :name %><br/>
+	<label>Description</label><br/>
+	<%= f.text_area :description %><br/>
+
+	<%= f.submit %>
+<% end %>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'default', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<h3>Airbnb</h3>
+
+	<% if user_signed_in? %>
+	Current User: <%= current_user.id %> |
+	Howdy <%= current_user.first_name %> |
+
+	<%= link_to "Amenity", amenities_path %> |
+	<%= link_to "City", cities_path %> |
+	<%= link_to "Room", rooms_path %> |
+	<%= link_to "Room Type", room_types_path %> |
+	<%= link_to "User Type", user_types_path %> |
+
+	<%= link_to "Edit Account", edit_user_registration_path %> |
+	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+	<% else %>
+
+	<%= link_to "Login", new_user_session_path %>
+	<%= link_to "Sign Up", new_user_registration_path %>
+
+	<% end %>
+
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+
+	<%= yield %>
+
+</body>
+</html>
