@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
 	has_many :rooms
 
+     def is_admin?
+     	return true if self.role == "admin"
+     end
+
 end

@@ -12,11 +12,14 @@
 	<% if user_signed_in? %>
 	Current User: <%= current_user.id %> |
 	Howdy <%= current_user.first_name %> |
-
-	<%= link_to "Amenity", amenities_path %> |
-	<%= link_to "City", cities_path %> |
-	<%= link_to "Room", rooms_path %> |
-	<%= link_to "Room Type", room_types_path %> |
+	<% if current_user.is_admin? %>
+		<%= link_to "Amenity", amenities_path %> |
+		<%= link_to "City", cities_path %> |
+		<%= link_to "Room", rooms_path %> |
+		<%= link_to "Room Type", room_types_path %> |
+	<% else %>
+			<%= link_to "Room", rooms_path %> |
+	<% end %>
 
 	<%= link_to "Edit Account", edit_user_registration_path %> |
 	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
