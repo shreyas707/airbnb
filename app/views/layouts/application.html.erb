@@ -7,7 +7,7 @@
 </head>
 <body>
 
-	<h3>Airbnb</h3>
+	<h1>Airbnb</h1>
 
 	<% if user_signed_in? %>
 	Current User: <%= current_user.id %> |
@@ -17,7 +17,6 @@
 	<%= link_to "City", cities_path %> |
 	<%= link_to "Room", rooms_path %> |
 	<%= link_to "Room Type", room_types_path %> |
-	<%= link_to "User Type", user_types_path %> |
 
 	<%= link_to "Edit Account", edit_user_registration_path %> |
 	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
