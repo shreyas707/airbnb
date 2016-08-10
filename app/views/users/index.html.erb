@@ -1,0 +1,30 @@
+<h3>Listing Users</h3>
+
+<% if @users.empty? %>
+	<p>No user found.</p>
+<% else %>
+
+	<table border = "1">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% @users.each_with_index do |user,index|%>
+			<tr>
+				<td> <%= index + 1 %></td>
+				<td> <%= user.first_name %></td>
+				<td> <%= user.last_name %> </td>
+				<td> <%= user.email %> </td>
+				<td> <%= link_to "Show", user_path(user.id) %> </td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>
+<h2><%= link_to "Add user", users_path %></h2>
