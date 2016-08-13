@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'rooms/by_price_range'
+  get 'rooms/my_rooms'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   
   resources :users

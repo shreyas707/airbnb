@@ -1,5 +1,36 @@
 <h3>Listing Rooms</h3>
 
+<b> Filter by Room Type:
+	<% @room_types.each do |room_type| %>
+		<%= link_to room_type.name, rooms_path(room_type_id: room_type.id) %> |
+	<% end %>
+	<%= link_to "All", rooms_path%>
+</b><br/><br/>
+
+<b> Filter by City:
+
+	<% @cities.each do |city| %>
+		<%= link_to city.name, rooms_path(city_id: city.id) %> |
+	<% end %>
+	<%= link_to "All", rooms_path%>
+</b><br/><br/>
+<!--
+<select name="post[city_id]">
+    <#% City.all.each do |city| %>
+        <option value="<#%= city.id %>"><#%= link_to city.name, rooms_path(city_id: city.id) %></option>
+    <#% end %>
+</select>
+-->
+<b>Filter by Price Range: 
+<%= form_tag rooms_by_price_range_path, method: :get do  %>
+<%= number_field_tag :min_price %>
+to
+<%= number_field_tag :max_price %>
+<%= submit_tag "submit"%>
+<% end %>
+
+</b><br/><br/>
+
 <% if @rooms.empty? %>
 	<p>No rooms found.</p>
 <% else %>
@@ -35,4 +66,6 @@
 	</table>
 <% end %>
 
-<h2><%= link_to "Add room", new_room_path %></h2>
+<% if current_user.role == "admin" || current_user.role == "host" %> 
+	<h2><%= link_to "Add room", new_room_path %></h2>
+<% end %>

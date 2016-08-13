@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'default', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
@@ -15,12 +25,11 @@
 	<% if current_user.is_admin? %>
 		<%= link_to "Amenity", amenities_path %> |
 		<%= link_to "City", cities_path %> |
-		<%= link_to "Room", rooms_path %> |
 		<%= link_to "Room Type", room_types_path %> |
-	<% else %>
-			<%= link_to "Room", rooms_path %> |
 	<% end %>
 
+	<%= link_to "All Room", rooms_path %> |
+	<%= link_to "My Rooms", rooms_my_rooms_path %> |
 	<%= link_to "Edit Account", edit_user_registration_path %> |
 	<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 

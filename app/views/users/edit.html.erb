@@ -15,6 +15,12 @@
 	<%= f.text_field :last_name %><br/>
 	<label>Email</label><br/>
 	<%= f.text_field :last_name %><br/>
+	<label>Password</label><br/>
+	<%= f.password_field :password %><br/>
+	<label>Password</label><br/>
+	<%= f.password_field :password_confirmation %>
+	<label>User Role</label><br/>
+	<%= f.collection_select :user_role_id, UserRole.all, :id, :name, prompt: "Select User Role" %>
 
 	<%= f.submit %>
 <% end %>

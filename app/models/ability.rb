@@ -5,8 +5,10 @@ class Ability
 
     if user.role == "admin"
         can :manage, :all
-    elsif user.role == "user"
+    elsif  user.role == "user" || user.role == "host"
         can :manage, [Room]
+    elsif user.role == "guest"
+       can :read, [Room]
     end
 
     # Define abilities for the passed in user here. For example:

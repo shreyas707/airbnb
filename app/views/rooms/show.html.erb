@@ -38,6 +38,8 @@
   <%= @room.room_type.name %>
 </p>
 
+<% if @room.user_id == current_user.id || current_user.role == "admin" %>
 <%= link_to 'Edit', edit_room_path(@room.id) %> |
 <%= link_to "Delete", room_path(@room.id), data: {method: :delete, confirm: "Are you sure you want to delete?"} %> |
+<% end %>
 <%= link_to 'Back', rooms_path %>
