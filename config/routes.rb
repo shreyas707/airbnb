@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :rooms
   resources :room_types
   resources :user_types
+  resources :bookings
 
   root to: "rooms#index"
   # The priority is based upon order of creation: first created -> highest priority.

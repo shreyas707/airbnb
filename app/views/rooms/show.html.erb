@@ -23,7 +23,7 @@
 <p>
   <strong>Amenities:</strong>
   <% @room.amenities.each do |amenity| %><br/>
-	<%= amenity.name %>
+  <%= amenity.name %>
   <% end %>
 </p>
 
@@ -43,3 +43,22 @@
 <%= link_to "Delete", room_path(@room.id), data: {method: :delete, confirm: "Are you sure you want to delete?"} %> |
 <% end %>
 <%= link_to 'Back', rooms_path %>
+<br/><br/>
+
+<h3>Book</h3>
+
+<%= form_for @booking do |f| %>
+
+<%= f.hidden_field :user_id, value: current_user.id %>
+
+<%= f.hidden_field :room_id, value: @room.id %>
+
+<label>Start Date</label><br>
+<%= f.date_select :start_date, order:[:day, :month, :year] %><br>
+
+<label>End Date</label><br>
+<%= f.date_select :end_date, order:[:day, :month, :year] %><br>
+
+<%= f.submit %>
+
+<% end %>

@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 	has_many :rooms
-
+	has_many :bookings
+	
 	belongs_to :user_role
 
      def is_admin?

@@ -2,7 +2,7 @@
 
 <b> Filter by Room Type:
 	<% @room_types.each do |room_type| %>
-		<%= link_to room_type.name, rooms_path(room_type_id: room_type.id) %> |
+	<%= link_to room_type.name, rooms_path(room_type_id: room_type.id) %> |
 	<% end %>
 	<%= link_to "All", rooms_path%>
 </b><br/><br/>
@@ -10,7 +10,7 @@
 <b> Filter by City:
 
 	<% @cities.each do |city| %>
-		<%= link_to city.name, rooms_path(city_id: city.id) %> |
+	<%= link_to city.name, rooms_path(city_id: city.id) %> |
 	<% end %>
 	<%= link_to "All", rooms_path%>
 </b><br/><br/>
@@ -22,50 +22,50 @@
 </select>
 -->
 <b>Filter by Price Range: 
-<%= form_tag rooms_by_price_range_path, method: :get do  %>
-<%= number_field_tag :min_price %>
-to
-<%= number_field_tag :max_price %>
-<%= submit_tag "submit"%>
-<% end %>
+	<%= form_tag rooms_by_price_range_path, method: :get do  %>
+	<%= number_field_tag :min_price %>
+	to
+	<%= number_field_tag :max_price %>
+	<%= submit_tag "submit"%>
+	<% end %>
 
 </b><br/><br/>
 
 <% if @rooms.empty? %>
-	<p>No rooms found.</p>
+<p>No rooms found.</p>
 <% else %>
 
-	<table border = "1">
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>Name</th>
-				<th>Description</th>
-				<th>Price</th>
-				<th>Rules</th>
-				<th>City</th>
-				<th>Room type</th>
-				<th>Show</th>
-			</tr>
-		</thead>
+<table border = "1">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>Rules</th>
+			<th>City</th>
+			<th>Room type</th>
+			<th>Show</th>
+		</tr>
+	</thead>
 
-		<tbody>
-			<% @rooms.each_with_index do |room,index|%>
-			<tr>
-				<td> <%= index + 1 %></td>
-				<td> <%= room.name %></td>
-				<td> <%= room.description %> </td>
-				<td> <%= room.price %></td>
-				<td> <%= room.rules %></td>
-				<td> <%= room.city.name %></td>
-				<td> <%= room.room_type.name %></td>
-				<td> <%= link_to "Show", room_path(room.id) %></td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
+	<tbody>
+		<% @rooms.each_with_index do |room,index|%>
+		<tr>
+			<td> <%= index + 1 %></td>
+			<td> <%= room.name %></td>
+			<td> <%= room.description %> </td>
+			<td> <%= room.price %></td>
+			<td> <%= room.rules %></td>
+			<td> <%= room.city.name %></td>
+			<td> <%= room.room_type.name %></td>
+			<td> <%= link_to "Show", room_path(room.id) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
 <% end %>
 
 <% if current_user.role == "admin" || current_user.role == "host" %> 
-	<h2><%= link_to "Add room", new_room_path %></h2>
+<h2><%= link_to "Add room", new_room_path %></h2>
 <% end %>
