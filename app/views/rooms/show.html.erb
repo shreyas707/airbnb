@@ -45,7 +45,15 @@
 <%= link_to 'Back', rooms_path %>
 <br/><br/>
 
-<h3>Book</h3>
+<h3>Have you been here?</h3>
+<%= form_for @been_here do |f| %>
+<%= f.hidden_field :room_id, value: @room.id %>
+<%= f.hidden_field :user_id, value: @current_user.id %>
+<%= f.hidden_field :date, value: Date.today %>
+  <%= f.submit %>
+<% end %>
+
+<h3> Book </h3>
 
 <%= form_for @booking do |f| %>
 

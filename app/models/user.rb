@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
 	has_many :rooms
 	has_many :bookings
+  has_many :been_heres
 	
 	belongs_to :user_role
 
