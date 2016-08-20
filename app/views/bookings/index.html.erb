@@ -1,3 +1,5 @@
+<h2>Listing your bookings.</h2>
+
 <% if current_user.is_admin? %>
 	<h3>You're the admin. You can view bookings of all users.</h3>
 <% end %>
@@ -32,8 +34,8 @@
 				<td> <%= booking.user.email %> </td>
 			<% end %>
 			<td> <%= booking.room.name %></td>
-			<td> <%= booking.room.city %> </td>
-			<td> <%= booking.room.room_type %></td>
+			<td> <%= booking.room.city.name %> </td>
+			<td> <%= booking.room.room_type.name %></td>
 			<td> <%= booking.start_date %></td>
 			<td> <%= booking.end_date %></td>
 			<td> <%= link_to "Show", booking_path(booking.id) %></td>
