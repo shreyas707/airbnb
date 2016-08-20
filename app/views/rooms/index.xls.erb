@@ -1,0 +1,27 @@
+<table border = "1">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>Rules</th>
+			<th>City</th>
+			<th>Room type</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @rooms.each_with_index do |room,index|%>
+		<tr>
+			<td> <%= index + 1 %></td>
+			<td> <%= room.name %></td>
+			<td> <%= room.description %> </td>
+			<td> <%= room.price %></td>
+			<td> <%= room.rules %></td>
+			<td> <%= room.city.name %></td>
+			<td> <%= room.room_type.name %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

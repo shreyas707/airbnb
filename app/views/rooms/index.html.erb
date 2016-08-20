@@ -31,6 +31,10 @@
 
 </b><br/><br/>
 
+<% if current_user.is_admin? %>
+	<%= link_to "Export to Excel", bookings_path(format: "xls") %>
+<% end %>
+
 <% if @rooms.empty? %>
 <p>No rooms found.</p>
 <% else %>

@@ -1,14 +1,3 @@
-<h2>Listing your bookings.</h2>
-
-<% if current_user.is_admin? %>
-	<h3>You're the admin. You can view bookings of all users.</h3>
-	<%= link_to "Export to Excel", bookings_path(format: "xls") %>
-<% end %>
-
-<% if @bookings.empty? %>
-<p>No bookings found.</p>
-<% else %>
-
 <table border = "1">
 	<thead>
 		<tr>
@@ -22,7 +11,6 @@
 			<th>Room type</th>
 			<th>Start Date</th>
 			<th>End Date</th>
-			<th>Show</th>
 		</tr>
 	</thead>
 
@@ -39,9 +27,7 @@
 			<td> <%= booking.room.room_type.name %></td>
 			<td> <%= booking.start_date %></td>
 			<td> <%= booking.end_date %></td>
-			<td> <%= link_to "Show", booking_path(booking.id) %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
-<% end %>
