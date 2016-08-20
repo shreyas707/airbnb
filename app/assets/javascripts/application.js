@@ -19,4 +19,9 @@ $(function() {
   $('table').addClass('mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp');
   $('th').addClass('mdl-data-table__cell--non-numeric');
   $('td').addClass('mdl-data-table__cell--non-numeric');
+  $('label').addClass('mdl-textfield__label');
+  $('input[type=text]').addClass('mdl-textfield__input');
+  $('input[type=email]').addClass('mdl-textfield__input');
+  $('input[type=password]').addClass('mdl-textfield__input');
+  $('textarea').addClass('mdl-textfield__input');
 });
