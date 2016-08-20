@@ -1,0 +1,39 @@
+<%= form_for @room do |f| %>
+<% if @room.errors.any? %>
+	<h4>These errors prohitibted the form from being saved: </h4>
+	<ul style = "color:red;">
+		<% @room.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+	<label>Name</label><br/>
+	<%= f.text_field :name %><br/></br>
+
+	<label>Description</label><br/>
+	<%= f.text_area :description %><br/></br>
+
+	<label>Room Type</label><br/>
+	<%= f.collection_select :room_type_id, RoomType.all, :id, :name, prompt: "Select Room Type" %><br/><br/>
+
+	<label>City</label><br/>
+	<%= f.collection_select :city_id, City.all, :id, :name, prompt: "Select City" %><br/><br/>
+
+	<label>Price</label><br/>
+	<%= f.text_area :price %><br/><br/>
+
+	<label>Minimum Days</label><br/>
+	<%= f.text_area :minimum_days %><br/><br/>
+
+	<label>Amenities</label>
+	<%= f.collection_check_boxes :amenity_ids, Amenity.all, :id, :name do |b| %>
+		<br/><%= b.check_box %>
+		<%= b.label %><br/>
+	<% end %>
+
+	<br/><label>House Rules</label><br/>
+	<%= f.text_area :rules %><br/><br/>
+
+	<%= f.submit %>
+<% end %>

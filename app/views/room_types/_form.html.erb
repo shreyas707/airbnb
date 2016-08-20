@@ -1,0 +1,14 @@
+<%= form_for @room_type do |f| %>
+<% if @room_type.errors.any? %>
+	<h4>These errors prohitibted the form from being saved: </h4>
+	<ul style = "color:red;">
+		<% @room_type.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+	<label>Name</label><br/>
+	<%= f.text_field :name %><br/>
+
+	<%= f.submit %>
+<% end %>

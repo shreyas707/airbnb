@@ -1,18 +1,3 @@
 <h3>Add User Type</h3>
 
-<%= form_for @user_type do |f| %>
-<% if @user_type.errors.any? %>
-	<h4>These errors prohitibted the form from being saved: </h4>
-	<ul style = "color:red;">
-		<% @user_type.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-		<% end %>
-	</ul>
-<% end %>
-	<label>Name</label><br/>
-	<%= f.text_field :name %><br/>
-	<label>Description</label><br/>
-	<%= f.text_area :description %><br/>
-
-	<%= f.submit %>
-<% end %>
+<%= render 'form' %>
