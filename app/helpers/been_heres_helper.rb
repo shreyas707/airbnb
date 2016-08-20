@@ -1,2 +1,0 @@
-module BeenHeresHelper
-end

@@ -1,0 +1,32 @@
+<% if @bookings.empty? %>
+	<p>No bookings found.</p>
+
+<% else %>
+
+<p>Room ID: <%= params[:room_id] %></p>
+<p>Room Name: <%= @room.name %></p>	
+
+<table border = "1">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @bookings.each_with_index do |booking,index|%>
+		<tr>
+			<td> <%= index + 1 %></td>
+			<td> <%= booking.user.first_name %></td>
+			<td> <%= booking.user.email %> </td>
+			<td> <%= booking.start_date %></td>
+			<td> <%= booking.end_date %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %>

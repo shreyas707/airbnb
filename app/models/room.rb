@@ -6,8 +6,9 @@ class Room < ActiveRecord::Base
 
 	has_many :bookings
 	has_many :been_heres
+	has_many :notifications
 	
 	has_many :amenity_rooms
 	has_many :amenities, through: :amenity_rooms
 
-end
+end 

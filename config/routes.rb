@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'rooms/by_price_range'
   get 'rooms/my_rooms'
+  get 'bookings/my_room_bookings'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   resources :user_types
   resources :bookings
   resources :been_heres
+  resources :notifications
 
   root to: "rooms#index"
   # The priority is based upon order of creation: first created -> highest priority.

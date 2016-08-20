@@ -39,12 +39,6 @@ class RoomsController < ApplicationController
 		@booking.user_id = current_user.id
 		@booking.room_id = @room
 
-		#for been here
-		@been_here = BeenHere.new
-		@been_here.user_id = current_user.id
-		@been_here.room_id = @room
-		@been_here.date = Date.today
-
 	end
 
 	def edit	

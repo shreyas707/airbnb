@@ -1,0 +1,44 @@
+<% if current_user.is_admin? %>
+	<h3>You're the admin. You can view bookings of all users.</h3>
+<% end %>
+
+<% if @bookings.empty? %>
+<p>No bookings found.</p>
+<% else %>
+
+<table border = "1">
+	<thead>
+		<tr>
+			<th>#</th>
+			<% if current_user.is_admin? %>
+				<th>User Name</th>
+				<th>User Email</th>
+			<% end %>
+			<th>Name</th>
+			<th>City</th>
+			<th>Room type</th>
+			<th>Start Date</th>
+			<th>End Date</th>
+			<th>Show</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @bookings.each_with_index do |booking,index|%>
+		<tr>
+			<td> <%= index + 1 %></td>
+			<% if current_user.is_admin? %>
+				<td> <%= booking.user.first_name %> </td>
+				<td> <%= booking.user.email %> </td>
+			<% end %>
+			<td> <%= booking.room.name %></td>
+			<td> <%= booking.room.city %> </td>
+			<td> <%= booking.room.room_type %></td>
+			<td> <%= booking.start_date %></td>
+			<td> <%= booking.end_date %></td>
+			<td> <%= link_to "Show", booking_path(booking.id) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %>

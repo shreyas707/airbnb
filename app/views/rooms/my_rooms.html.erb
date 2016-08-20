@@ -15,6 +15,7 @@
 				<th>Rules</th>
 				<th>City</th>
 				<th>Room type</th>
+				<!-- <th>Bookings</th> -->
 				<th>Show</th>
 			</tr>
 		</thead>
@@ -29,6 +30,7 @@
 				<td> <%= room.rules %></td>
 				<td> <%= room.city.name %></td>
 				<td> <%= room.room_type.name %></td>
+				<!-- <td> <%#= link_to "Bookings", bookings_my_room_bookings_path %> </td> -->
 				<td> <%= link_to "Show", room_path(room.id) %></td>
 			</tr>
 			<% end %>
