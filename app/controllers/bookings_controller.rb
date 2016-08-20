@@ -6,8 +6,8 @@ class BookingsController < ApplicationController
 
 	def create
 		@booking = Booking.new(booking_params)
-
 		if @booking.save
+			Notification.completed(@booking, current_user).deliver!
 			redirect_to rooms_path
 		else
 			redirect_to :back, notice: "These dates are taken. Please select a different date."
