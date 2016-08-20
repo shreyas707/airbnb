@@ -10,6 +10,6 @@
   <%= @amenity.description %>
 </p>
 
-<%= link_to 'Edit', edit_amenity_path(@amenity.id) %> |
-<%= link_to "Delete", amenities_path(@amenity.id), data: {method: :delete, confirm: "Are you sure you want to delete?"} %> |
-<%= link_to 'Back', amenities_path %>
+<%= link_to 'Edit', edit_amenity_path(@amenity.id), class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %> 
+<%= link_to "Delete", amenities_path(@amenity.id), data: {method: :delete, confirm: "Are you sure you want to delete?"}, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %> 
+<%= link_to 'Back', amenities_path, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>

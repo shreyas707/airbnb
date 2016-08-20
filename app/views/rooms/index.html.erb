@@ -26,15 +26,15 @@
 	<%= number_field_tag :min_price %>
 	to
 	<%= number_field_tag :max_price %>
-	<%= submit_tag "submit"%>
+	<%= submit_tag 'Submit', class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
 	<% end %>
 
 </b><br/><br/>
 
 <% if current_user.is_admin? %>
-	<%= link_to "Export to Excel", bookings_path(format: "xls") %>
+	<%= link_to "Export to Excel", bookings_path(format: "xls"), class:"mdl-button mdl-js-button mdl-button--raised mdl-button", style:"background-color: #009688" %>
 <% end %>
-
+<br/><br/>
 <% if @rooms.empty? %>
 <p>No rooms found.</p>
 <% else %>
@@ -71,5 +71,5 @@
 <% end %>
 
 <% if current_user.role == "admin" || current_user.role == "host" %> 
-<h2><%= link_to "Add room", new_room_path %></h2>
+<h2><%= link_to "Add room", new_room_path, class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %></h2>
 <% end %>

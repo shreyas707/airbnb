@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('table').addClass('mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp');
+  $('th').addClass('mdl-data-table__cell--non-numeric');
+  $('td').addClass('mdl-data-table__cell--non-numeric');
+});

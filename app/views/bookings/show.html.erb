@@ -38,6 +38,6 @@
   <%= @room.room_type.name %>
 </p>
 
-<%= link_to "Cancel Booking", booking_path(@booking.id), data: {method: :delete, confirm: "Are you sure you want to delete?"} %> |
-<%= link_to 'Back', bookings_path %>
+<%= link_to "Cancel Booking", booking_path(@booking.id), data: {method: :delete, confirm: "Are you sure you want to delete?"}, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+<%= link_to 'Back', bookings_path, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
 <br/><br/>

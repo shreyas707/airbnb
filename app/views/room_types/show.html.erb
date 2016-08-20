@@ -5,6 +5,6 @@
   <%= @room_type.name %>
 </p>
 
-<%= link_to 'Edit', edit_room_type_path(@room_type.id) %> |
-<%= link_to "Delete", room_types_path(@room_type.id), data: {method: :delete, confirm: "Are you sure you want to delete?"} %> |
-<%= link_to 'Back', room_types_path %>
+<%= link_to 'Edit', edit_room_type_path(@room_type.id), class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+<%= link_to "Delete", room_types_path(@room_type.id), data: {method: :delete, confirm: "Are you sure you want to delete?"}, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+<%= link_to 'Back', room_types_path, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
