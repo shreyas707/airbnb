@@ -8,32 +8,57 @@
 	</ul>
 <% end %>
 
-	<label>Name</label><br/>
-	<%= f.text_field :name %><br/></br>
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		<%= f.text_field :name %>
+		<label>Name</label>
+	</div>
+	<br/>
 
-	<label>Description</label><br/>
-	<%= f.text_area :description %><br/></br>
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		<%= f.text_area :description %>
+		<label>Description</label>
+	</div>
+	<br/>
 
-	<label>Room Type</label><br/>
-	<%= f.collection_select :room_type_id, RoomType.all, :id, :name, prompt: "Select Room Type" %><br/><br/>
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><br/><br/>
+		<%= f.collection_select :room_type_id, RoomType.all, :id, :name, prompt: "Select Room Type" %>
+		<label>Room Type</label>
+	</div>
+	<br/>
 
-	<label>City</label><br/>
-	<%= f.collection_select :city_id, City.all, :id, :name, prompt: "Select City" %><br/><br/>
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><br/><br/>
+		<%= f.collection_select :city_id, City.all, :id, :name, prompt: "Select City" %>
+		<label>City</label>
+	</div>
+	<br/>
 
-	<label>Price</label><br/>
-	<%= f.text_area :price %><br/><br/>
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		<%= f.text_area :price %>
+		<label>Price</label>
+	</div>
+	<br/>
 
-	<label>Minimum Days</label><br/>
-	<%= f.text_area :minimum_days %><br/><br/>
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		<%= f.text_area :minimum_days %>
+		<label>Minimum Days</label>
+	</div>
+	<br/>
 
-	<label>Amenities</label>
-	<%= f.collection_check_boxes :amenity_ids, Amenity.all, :id, :name do |b| %>
-		<br/><%= b.check_box %>
-		<%= b.label %><br/>
-	<% end %>
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		<%= f.collection_check_boxes :amenity_ids, Amenity.all, :id, :name do |b| %><br/><br/>
+			<%= b.check_box %>
+			<%= b.label %>
+		<% end %>
+	</div>
+		<label>Amenities</label>
+	<br/>
 
-	<br/><label>House Rules</label><br/>
-	<%= f.text_area :rules %><br/><br/>
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		<%= f.text_area :rules %>
+		<label>House Rules</label>
+	</div>
+	<br/>
 
-	<%= f.submit 'Submit', class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  %>
+	<%= f.submit 'Submit', class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
 <% end %>
+<br/><br/>

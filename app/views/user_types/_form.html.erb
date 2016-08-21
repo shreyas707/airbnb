@@ -7,10 +7,16 @@
 		<% end %>
 	</ul>
 <% end %>
-	<label>Name</label><br/>
-	<%= f.text_field :name %><br/>
-	<label>Description</label><br/>
-	<%= f.text_area :description %><br/>
 
-	<%= f.submit %>
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><br/><br/>
+		<%= f.text_field :name %>
+		<label>Name</label>
+	</div>
+
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"><br/><br/>
+		<%= f.text_area :description %>
+		<label>Description</label>
+	</div>
+
+	<%= f.submit, class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
 <% end %>

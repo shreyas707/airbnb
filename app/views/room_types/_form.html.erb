@@ -1,14 +1,18 @@
 <%= form_for @room_type do |f| %>
 <% if @room_type.errors.any? %>
-	<h4>These errors prohitibted the form from being saved: </h4>
-	<ul style = "color:red;">
-		<% @room_type.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-		<% end %>
-	</ul>
+<h4>These errors prohitibted the form from being saved: </h4>
+<ul style = "color:red;">
+	<% @room_type.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+	<% end %>
+</ul>
 <% end %>
-	<label>Name</label><br/>
-	<%= f.text_field :name %><br/>
 
-	<%= f.submit 'Submit', class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  %>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+	<%= f.text_field :name %>
+	<label>Name</label>
+</div>
+
+<br/><br/>
+<%= f.submit 'Submit', class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  %>
 <% end %>
