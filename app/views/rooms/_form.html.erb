@@ -33,13 +33,31 @@
 	<br/>
 
 	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		<%= f.text_area :price %>
+		<%= f.text_area :address %>
+		<label>Address</label>
+	</div>
+	<br/>
+
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		<%= f.number_field :latitude, :step => 'any' %>
+		<label>Latitude</label>
+	</div>
+	<br/>
+
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		<%= f.number_field :longitude, :step => 'any' %>
+		<label>Longitude</label>
+	</div>
+	<br/>
+
+	<div class="mdl-textfield mdl-js-textfield">
+		<%= f.number_field :price %>
 		<label>Price</label>
 	</div>
 	<br/>
 
 	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-		<%= f.text_area :minimum_days %>
+		<%= f.number_field :minimum_days %>
 		<label>Minimum Days</label>
 	</div>
 	<br/>

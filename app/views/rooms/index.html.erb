@@ -25,14 +25,14 @@
 	<%= form_tag rooms_by_price_range_path, method: :get do  %>
 	<%= number_field_tag :min_price %>
 	to
-	<%= number_field_tag :max_price %>
+	<%= number_field_tag :max_price %><br/>
 	<%= submit_tag 'Submit', class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
 	<% end %>
 
 </b><br/><br/>
 
 <% if current_user.is_admin? %>
-	<%= link_to "Export to Excel", bookings_path(format: "xls"), class:"mdl-button mdl-js-button mdl-button--raised mdl-button", style:"background-color: #009688" %>
+	<%= link_to "Export to Excel", rooms_path(format: "xls"), class:"mdl-button mdl-js-button mdl-button--raised mdl-button", style:"background-color: #009688" %>
 <% end %>
 <br/><br/>
 <% if @rooms.empty? %>

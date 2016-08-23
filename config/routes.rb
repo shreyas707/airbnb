@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :cities
   resources :rooms
   resources :room_types
-  resources :user_types
   resources :bookings
   resources :been_heres
   resources :notifications

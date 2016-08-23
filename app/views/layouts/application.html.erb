@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag    'application', media: 'all' %>
+	<%= javascript_include_tag 'application' %>
 	<%= csrf_meta_tags %>
 
 	<!-- Latest compiled and minified CSS -->
@@ -35,6 +35,9 @@
 				<ul class="nav navbar-nav">
 					<% if user_signed_in? %>
 						<% if current_user.is_admin? %>
+							<li <% if controller.controller_name == "users" %>
+					                class="active"
+					            <% end %>><%= link_to "User", users_path %></li>
 							<li <% if controller.controller_name == "amenities" %>
 					                class="active"
 					            <% end %>><%= link_to "Amenity", amenities_path %></li>
@@ -44,7 +47,7 @@
 							<li <% if controller.controller_name == "room_types" %>
 					                class="active"
 					            <% end %>><%= link_to "Room Type", room_types_path %></li> 
-											<% end %>
+						<% end %>
 							<li <% if controller.controller_name == "bookings" %>
 					                class="active"
 					            <% end %>><%= link_to "My Bookings", bookings_path %></li> 

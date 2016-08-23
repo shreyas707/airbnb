@@ -1,4 +1,4 @@
-<p>User <%= @user.id %></p>
+<p>User ID: <%= @user.id %></p>
 
 <p>
   <strong>First Name:</strong>
@@ -15,7 +15,12 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>Mobile:</strong>
+  <%= @user.mobile_number %>
+</p>
 
-<%= link_to 'Edit', edit_user_path(@user.id) %> |
-<%= link_to "Delete", users_path(@user.id), data: {method: :delete, confirm: "Are you sure you want to delete?"} %> |
-<%= link_to 'Back', users_path %>
+
+<%= link_to 'Edit', edit_user_path(@user.id), class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+<%= link_to "Delete", users_path(@user.id), data: {method: :delete, confirm: "Are you sure you want to delete?"}, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" %>
+<%= link_to 'Back', users_path, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>

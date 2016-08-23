@@ -1,26 +1,3 @@
 <h3>Add User</h3>
 
-<%= form_for @user do |f| %>
-<% if @user.errors.any? %>
-	<h4>These errors prohitibted the form from being saved: </h4>
-	<ul style = "color:red;">
-		<% @user.errors.full_messages.each do |msg| %>
-			<li><%= msg %></li>
-		<% end %>
-	</ul>
-<% end %>
-	<label>First Name</label><br/>
-	<%= f.text_field :first_name %><br/>
-	<label>Last Name</label><br/>
-	<%= f.text_field :last_name %><br/>
-	<label>Email</label><br/>
-	<%= f.text_field :email %><br/>
-	<label>Password</label><br/>
-	<%= f.password_field :password %><br/>
-	<label>Re-confirm password</label><br/>
-	<%= f.password_field :password_confirmation %><br/>
-	<label>User Role</label><br/>
-	<%= f.collection_select :role_id, UserRole.all, :id, :name, prompt: "Select User Role" %>
-
-	<%= f.submit %>
-<% end %>
+<%= render 'form' %>

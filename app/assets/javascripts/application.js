@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 $(function() {
@@ -21,6 +20,7 @@ $(function() {
   $('td').addClass('mdl-data-table__cell--non-numeric');
   $('label').addClass('mdl-textfield__label');
   $('input[type=text]').addClass('mdl-textfield__input');
+  $('input[type=number]').addClass('mdl-textfield__input');
   $('input[type=email]').addClass('mdl-textfield__input');
   $('input[type=password]').addClass('mdl-textfield__input');
   $('textarea').addClass('mdl-textfield__input');

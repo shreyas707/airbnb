@@ -59,6 +59,14 @@
 </div>
 <br/>
 
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  <div class="field">
+    <%= f.label :mobile_number %><br />
+    <%= f.number_field :mobile_number, autocomplete: "off" %>
+  </div>
+</div>
+<br/>
+
 <br/>
   <div class="actions">
     <%= f.submit "Update", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>

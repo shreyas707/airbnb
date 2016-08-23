@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates_presence_of   :first_name, :last_name, :mobile_number
+  validates_uniqueness_of :mobile_number, allow_blank: false
+
 	has_many :rooms
 	has_many :bookings
   has_many :been_heres

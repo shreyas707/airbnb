@@ -1,0 +1,53 @@
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+	<h4>These errors prohitibted the form from being saved: </h4>
+	<ul style = "color:red;">
+		<% @user.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">	
+		<%= f.text_field :first_name %>
+		<label>First Name</label>
+	</div>
+	<br/>
+
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		<%= f.text_field :last_name %>
+		<label>Last Name</label>
+	</div>
+	<br/>
+
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		<%= f.text_field :email %>
+		<label>Email</label>
+	</div>
+	<br/>
+
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">	
+		<%= f.password_field :password %>
+		<label>Password</label>
+	</div>
+	<br/>
+
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		<%= f.password_field :password_confirmation %>
+		<label>Password</label>
+	</div>
+	<br/>
+
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		<%= f.number_field :mobile_number %>
+		<label>Mobile Number</label>
+	</div>
+	<br/>
+
+	<label>User Role</label><br/>
+	<%= f.radio_button :role, "admin" %> Admin
+	<%= f.radio_button :role, "user" %> User
+
+	<br/><br/>
+	<%= f.submit 'Submit', class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+<% end %>

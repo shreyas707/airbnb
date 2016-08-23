@@ -43,11 +43,13 @@
 </div>
 <br/>
 
-  <label>Select User Type</label>
-  <%= f.radio_button :role, "host" %>Host
-  <br/>
-  <%= f.radio_button :role, "guest" %>Guest
-  <br/><br/>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  <div class="field">
+    <%= f.label :mobile_number %>
+    <%= f.number_field :mobile_number, autocomplete: "off" %>
+  </div>
+</div>
+<br/>
 
   <div class="actions">
     <%= f.submit "Sign up", class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
