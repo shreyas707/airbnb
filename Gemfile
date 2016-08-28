@@ -9,6 +9,7 @@ gem 'devise'
 
 gem 'cancan'
 
+gem 'paperclip'
 # For heroku
 gem 'pg', group: :production
 # Use sqlite3 as the database for Active Record

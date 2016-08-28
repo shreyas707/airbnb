@@ -1,0 +1,28 @@
+<h3> Count on how many times each user has visited each room. </h3>
+
+<% if @views.empty? %>
+	<p>No views found.</p>
+<% else %>
+
+	<table border = "1">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>User ID</th>
+				<th>Room ID</th>
+				<th>View Count</th>
+		</thead>
+
+		<tbody>
+			<% @views.each_with_index do |view,index| %>
+				<tr>
+					<td> <%= index + 1 %> </td>
+					<td> <%= view.user_id %> </td>
+					<td> <%= view.room_id %> </td>
+					<td> <%= view.view_count %> </td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+
+<% end %>

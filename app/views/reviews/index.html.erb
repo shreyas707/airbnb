@@ -1,0 +1,41 @@
+<h2>Listing your reviews.</h2>
+
+<% if current_user.is_admin? %>
+	<h3>You're the admin. You can view reviews of all users.</h3>
+	<%= link_to "Export to Excel", reviews_path(format: "xls") %>
+<% end %>
+
+<% if @reviews.empty? %>
+<p>No reviews found.</p>
+<% else %>
+
+<table border = "1">
+	<thead>
+		<tr>
+			<th>#</th>
+			<% if current_user.is_admin? %>
+				<th>User Name</th>
+				<th>User Email</th>
+			<% end %>
+			<th>Room</th>
+			<th>Review</th>
+			<th>Rating</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @reviews.each_with_index do |review,index|%>
+		<tr>
+			<td> <%= index + 1 %></td>
+			<% if current_user.is_admin? %>
+				<td> <%= review.user.first_name %> </td>
+				<td> <%= review.user.email %> </td>
+			<% end %>
+			<td> <%= review.room.name %></td>
+			<td> <%= review.body %></td>
+			<td> <%= review.rating %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %>

@@ -58,6 +58,13 @@
   <%= @room.room_type.name %>
 </p>
 
+<% if current_user.id == @room.user.id || current_user.is_admin? %>
+  <p>
+    <strong>View Count:</strong>
+    <%= @room.view_count %>
+  </p>
+<% end %>
+
 <% if @room.user_id == current_user.id || current_user.role == "admin" %>
 <%= link_to 'Bookings of this room', bookings_my_room_bookings_path(:room_id => @room.id), class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %> 
 <%= link_to 'Edit', edit_room_path(@room.id), class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %> 
@@ -85,4 +92,72 @@
     <%= f.submit 'Book', class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  %>
 
   <% end %>
+<% end %>
+
+<!--bug in review: user can review more than once-->
+<% if @room.user_id != current_user.id #|| @new_review != current_user.id %>
+
+      <h3> Review this room. </h3>
+      <%= form_for @review do |f| %>
+
+        <%= f.hidden_field :user_id, value: current_user.id %>
+
+        <%= f.hidden_field :room_id, value: @room.id %>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <%= f.text_area :body %>
+          <label>Review</label>
+        </div>
+        <br/>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <%= f.number_field :rating %>
+          <label>Rating (out of 5)</label>
+        </div>
+        <br/>
+
+        <%= f.submit 'Submit', class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored"  %>
+
+      <% end %>
+<% end %>
+
+<!-- Liting Reviews -->
+<h3> Reviews </h3>
+
+<% @reviews.each do |review| %>
+  <% if !review.present? %>
+    <p>No reviews found.</p>
+  <% end %>
+  <% break %>
+<% end %>
+
+<% if !@reviews.empty? %>
+
+  <table border = "1">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>User Name</th>
+        <th>Review</th>
+        <th>Rating</th>
+        <th>Edit</th> 
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @reviews.each_with_index do |review,index|%>
+        <% if review.room_id == @room.id  %>
+          <tr>
+            <td> <%= index + 1 %></td>
+            <td> <%= review.user.first_name %></td>
+            <td> <%= review.body %> </td>
+            <td> <%= review.rating %></td>
+            <% if @review.user_id == current_user.id %>
+              <td> <%= link_to "Edit", edit_review_path(review.id) %> </td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>

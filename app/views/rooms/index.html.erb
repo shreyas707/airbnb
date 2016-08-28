@@ -23,10 +23,10 @@
 -->
 <b>Filter by Price Range: 
 	<%= form_tag rooms_by_price_range_path, method: :get do  %>
-	<%= number_field_tag :min_price %>
-	to
-	<%= number_field_tag :max_price %><br/>
-	<%= submit_tag 'Submit', class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
+		<%= number_field_tag :min_price %>
+		to
+		<%= number_field_tag :max_price %><br/>
+		<%= submit_tag 'Submit', class:"mdl-button mdl-js-button mdl-button--raised mdl-button--colored" %>
 	<% end %>
 
 </b><br/><br/>
@@ -49,6 +49,9 @@
 			<th>Rules</th>
 			<th>City</th>
 			<th>Room type</th>
+			<% if current_user.is_admin? %>
+				<th>View Count</th>
+			<% end %>
 			<th>Show</th>
 		</tr>
 	</thead>
@@ -63,6 +66,9 @@
 			<td> <%= room.rules %></td>
 			<td> <%= room.city.name %></td>
 			<td> <%= room.room_type.name %></td>
+			<% if current_user.is_admin? %>
+				<td> <%= room.view_count %> </td>
+			<% end %>
 			<td> <%= link_to "Show", room_path(room.id) %></td>
 		</tr>
 		<% end %>

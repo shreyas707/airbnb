@@ -15,6 +15,7 @@
 //= require_tree .
 
 $(function() {
+  //$('form').children("div").addClass('mdl-textfield mdl-js-textfield mdl-textfield--floating-label')
   $('table').addClass('mdl-data-table mdl-js-data-table mdl-data-table mdl-shadow--2dp');
   $('th').addClass('mdl-data-table__cell--non-numeric');
   $('td').addClass('mdl-data-table__cell--non-numeric');

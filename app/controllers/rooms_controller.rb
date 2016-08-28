@@ -32,11 +32,39 @@ class RoomsController < ApplicationController
 	end
 
 	def show
-		@room = Room.find(params[:id])
+		begin
+			@room = Room.find(params[:id])
+		rescue ActiveRecord::RecordNotFound
+			redirect_to rooms_path, notice: "Record not found."
+		end
+		
+		#this is for view count of each room of all users
+		@room.increment!(:view_count) if current_user.id != @room.user.id
+		
+		#this is for view count of each room of each user
+		@view = ViewCount.where('user_id = ? AND room_id = ?', current_user.id, @room.id)
+		if !(@view.empty?)
+			@view.each do |view|
+				view.increment!(:view_count) if current_user.id != @room.user.id
+			end
+		elsif current_user.id != @room.user.id
+			@view_count = ViewCount.new 
+			@view_count.user_id = current_user.id
+			@view_count.room_id = @room.id 
+			@view_count.increment!(:view_count) if current_user.id != @room.user.id
+			@view_count.save
+		end
 
 		#for booking
 		@booking = Booking.new
 		@booking.user_id = current_user.id
+		@booking.room_id = @room
+
+		#for reviews
+		@reviews = Review.all
+		@new_review = Review.all.where('user_id = ?'), current_user.id
+		@review = Review.new
+		@review.user_id = current_user.id
 		@booking.room_id = @room
 
 	end
@@ -70,6 +98,10 @@ class RoomsController < ApplicationController
 
 	def my_rooms
 		@rooms = current_user.rooms
+	end
+
+	def user_visits
+		@views = ViewCount.all
 	end
 
 	private
