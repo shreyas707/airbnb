@@ -107,7 +107,7 @@ class RoomsController < ApplicationController
 	private
 
     def room_params
-      params[:room].permit(:name, :description, :price, :rules, :minimum_days, :city_id, :address, :latitude, :longitude, :room_type_id, amenity_ids: [])
+      params[:room].permit(:image, :name, :description, :price, :rules, :minimum_days, :city_id, :address, :latitude, :longitude, :room_type_id, amenity_ids: [])
     end
 
 end
