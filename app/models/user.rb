@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
 	
 	belongs_to :user_role
 
-     def is_admin?
-     	return true if self.role == "admin"
-     end
+  def is_admin?
+    return true if self.role == "admin"
+  end
 
 end
